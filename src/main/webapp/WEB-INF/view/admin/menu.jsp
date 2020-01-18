@@ -64,8 +64,8 @@
 				</a>
 
 					<ul class="sub-menu js__content">
-						<li><a href="chart-3d.html">Add City</a></li>
-						<li><a href="chart-chartist.html">View city</a></li>
+						<li><a href="loadcity">Add City</a></li>
+						<li><a href="viewCity">View city</a></li>
 					</ul> <!-- /.sub-menu js__content --></li>
 
 

@@ -7,10 +7,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.cllc.model.StateVO;
 
 @Repository
+@Transactional
 public class StateDAOImpl implements StateDAO {
 	@Autowired
 	private SessionFactory sessionFactory;

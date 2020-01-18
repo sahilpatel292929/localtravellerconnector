@@ -225,82 +225,37 @@
 			<div class="row small-spacing">
 				<div class="col-12">
 					<div class="box-content">
-						<form data-toggle="validator">
+					<%@taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
+					<%@taglib prefix="p" uri="http://java.sun.com/jstl/core_rt"%>
+					
+						<f:form data-toggle="validator" action="insertCity" modelAttribute="CityVO" method="post">
 							<div class="form-group">
 								<label for="inputName" class="control-label">State Name</label> 
-								<select name="State Name" class="form-control">
 								
-								      <option></option>
-								
-								</select>
+								<f:select name="State Name" class="form-control" path="stateVO.stateId">
+								<p:forEach items="${state}" var="i">
+								      <f:option value="${i.stateId}">${i.stateName}</f:option>
+								</p:forEach>
+							   </f:select>
 								
 							</div>
 							
 							<div class="form-group">
-								<label for="inputName" class="control-label">City Name</label> <input
-									type="text" class="form-control" id="inputName"
-									placeholder="State Name" required>
+								<label for="inputName" class="control-label">City Name</label> 
+								 <f:input path="cityName" type="text" class="form-control" id="cityName" placeholder="City Name" required="required"/>
 							</div>
-							<!-- <div class="form-group has-feedback">
-								<label for="inputTwitter" class="control-label">Twitter</label>
-								<div class="input-group">
-									<span class="input-group-addon">@</span> <input type="text"
-										pattern="^[_A-z0-9]{1,}$" maxlength="15" class="form-control"
-										id="inputTwitter" placeholder="1000hz" required>
-								</div>
-								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-								<div class="help-block with-errors">Hey look, this one has
-									feedback icons!</div>
-							</div>
-							 -->
+						
 							 <div class="form-group">
-								<label for="inputEmail" class="control-label">City Description</label> <input
-									type="email" class="form-control" id="inputEmail"
-									placeholder="Description"
-									data-error="Bruh, that email address is invalid" required>
-								<div class="help-block with-errors"></div>
+								<label for="inputEmail" class="control-label">City Description</label>
+                             <f:textarea path="cityDescription" type="textarea" class="form-control" placeholder="Description" required="required"/>								
 							</div>
-							<!-- <div class="form-group">
-								<label for="inputPassword" class="control-label">Password</label>
-								<div class="row">
-									<div class="form-group col-md-6">
-										<input type="password" data-minlength="6" class="form-control"
-											id="inputPassword" placeholder="Password" required>
-										<div class="help-block">Minimum of 6 characters</div>
-									</div>
-									<div class="form-group col-md-6">
-										<input type="password" class="form-control"
-											id="inputPasswordConfirm" data-match="#inputPassword"
-											data-match-error="Whoops, these don't match"
-											placeholder="Confirm" required>
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="radio">
-									<input type="radio" name="underwear" id="underwear1" required>
-									<label for="underwear1">Boxers</label>
-								</div>
-								<div class="radio">
-									<input type="radio" name="underwear" id="underwear2" required>
-									<label for="underwear2">Briefs</label>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="checkbox">
-									<input type="checkbox" id="terms"
-										data-error="Before you wreck yourself" required> <label
-										for="terms">Check yourself</label>
-									<div class="help-block with-errors"></div>
-								</div>
-							</div> -->
+							<f:hidden path="cityId"/>
 							<div class="form-group">
 								<button type="submit"
 									class="btn btn-primary waves-effect waves-light">Submit</button>
 							</div>
 							
-						</form>
+						</f:form>
 					</div>
 					<!-- /.box-content -->
 				</div>
